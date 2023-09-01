@@ -17,3 +17,12 @@ case
   else "Scalene"
 end
 from triangles;
+
+-- case with aggregate functions
+select case when year = 'FR' then 'FR'
+        else 'Not FR' end as year_group,
+        count(1) as count
+from the_table
+group by case when year='FR' then 'FR'
+          else 'Not FR' end;
+
