@@ -22,3 +22,19 @@ SELECT companies.permalink,
 
 -- cross join
 select * from A, B;
+
+-- You join two tables by creating a relationship in the WHERE clause 
+-- between at least one column from one table and at least one column from another. 
+-- two tables
+SELECT order_num, lname, fname FROM customer, orders
+   WHERE customer.customer_num = orders.customer_num;
+
+-- multiple tables
+SELECT DISTINCT company, stock_num, manu_code
+   FROM customer c, orders o, items i
+   WHERE c.customer_num = o.customer_num
+      AND o.order_num = i.order_num;
+
+-- self joins
+SELECT x.stock_num, x.manu_code, y.stock_num, y.manu_code
+   FROM stock x, stock y WHERE x.unit_price > 2.5 * y.unit_price;
