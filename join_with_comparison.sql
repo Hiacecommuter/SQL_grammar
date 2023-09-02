@@ -19,3 +19,6 @@ SELECT companies.permalink,
     ON companies.permalink = investments.company_permalink
  WHERE investments.funded_year > companies.founded_year + 5
  GROUP BY 1,2, 3
+
+-- cross join
+select * from A, B;
